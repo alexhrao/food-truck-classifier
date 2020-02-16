@@ -14,6 +14,7 @@ const SingleLabelGroup: React.FC<SingleLabelGroupProps> = ({ groupName, value, l
             <label>
                 <input
                     type="radio"
+                    key={label}
                     name={groupName}
                     checked={value === label} 
                     onChange={() => {

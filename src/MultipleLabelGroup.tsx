@@ -14,6 +14,7 @@ const MultipleLabelGroup: React.FC<MultipleLabelGroupProps> = ({ groupName, labe
             <label>
                 <input
                     type="checkbox"
+                    key={label}
                     checked={value.includes(label)} 
                     onChange={() => {
                         let fedValue: string[];
