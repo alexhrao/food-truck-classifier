@@ -3,7 +3,7 @@ import './App.css';
 import SingleLabelGroup from './SingleLabelGroup';
 import MultipleLabelGroup from './MultipleLabelGroup';
 import NumericLabelGroup from './NumericLabelGroup';
-import { LabelGroup, ImageDocument,  getLabels, getNextImage } from './api';
+import { LabelGroup, ImageDocument,  getLabels, getNextImage, commitLabels } from './api';
 
 interface AppProps {};
 
@@ -117,10 +117,23 @@ export default class App extends React.Component<AppProps, AppState> {
     });
     return (
       <div className="App">
+        <h1>{imageDocument.filename}</h1>
         <img src={`https://food-truck-spy.appspot.com/api/snapshots/${imageDocument.bucket}/${imageDocument.key}`} alt="Classify" />
         <div className="label-groups">
           {labels}
         </div>
+        <button
+          type="button"
+          onClick={() => {
+            commitLabels(imageDocument)
+              .then(() => {
+                getNextImage()
+                  .then(imgDoc => this.setState({ imageDocument: imgDoc }));
+              })
+          }}
+        >
+          Commit Changes
+        </button>
       </div>
     );
   }

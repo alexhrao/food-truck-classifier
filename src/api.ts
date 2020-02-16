@@ -52,3 +52,10 @@ export const getNextImage = async (): Promise<ImageDocument> => {
     return fetch('https://food-truck-spy.appspot.com/api/images/')
         .then(resp => resp.json() as Promise<ImageDocument>);
 }
+
+export const commitLabels = async (doc: ImageDocument): Promise<unknown> => {
+    return fetch(`https://food-truck-spy.appspot.com/api/images/${doc.bucket}/${doc.key}`, {
+        body: JSON.stringify(doc.labels),
+        method: 'PUT'
+    });
+}
