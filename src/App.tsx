@@ -37,7 +37,7 @@ export default class App extends React.Component<AppProps, AppState> {
       if (group.groupType === 'multiple') {
         const val = ind !== -1 ? imageDocument.labels[ind].value as string[] : [];
         return (
-          <MultipleLabelGroup
+          <MultipleLabelGroup key={group.groupName}
             groupName={group.groupName}
             labels={group.labels}
             onChange={v => {
@@ -61,7 +61,7 @@ export default class App extends React.Component<AppProps, AppState> {
         );
       } else if (group.groupType === 'single') {
         return (
-          <SingleLabelGroup
+          <SingleLabelGroup key={group.groupName}
             groupName={group.groupName}
             labels={group.labels}
             onChange={v => {
@@ -85,7 +85,7 @@ export default class App extends React.Component<AppProps, AppState> {
         );
       } else if (group.groupType === 'numeric') {
         return (
-          <NumericLabelGroup
+          <NumericLabelGroup key={group.groupName}
             groupName={group.groupName}
             range={group.range}
             onChange={v => {
