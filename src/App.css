@@ -3,3 +3,8 @@ html {
   background-color: #282c34;
   color: white;
 }
+
+.label-groups {
+  display: flex;
+  flex-direction: row;
+}

@@ -10,16 +10,13 @@ interface AppProps {};
 interface AppState {
   labelGroups?: LabelGroup[];
   imageDocument?: ImageDocument;
-  imageSrc?: string;
 };
 
 export default class App extends React.Component<AppProps, AppState> {
   public constructor(props: AppProps) {
     super(props);
 
-    this.state = {
-
-    };
+    this.state = {};
     getNextImage()
       .then(imgDoc => this.setState({ imageDocument: imgDoc }));
     getLabels()
