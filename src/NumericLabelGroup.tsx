@@ -17,12 +17,14 @@ const NumericLabelGroup: React.FC<NumericLabelGroupProps> = ({ groupName, range,
     }
     return (
         <div className="label-group">
-            <p className="group-title">{groupName}</p>
+            <p title={rangeDescription} className="group-title">{groupName}</p>
             <div className="group-labels">
                 <input
+                    title={rangeDescription}
                     type="number"
                     value={value}
-                    placeholder={rangeDescription}
+                    min={range[0]}
+                    max={range[1] < range[0] ? undefined : range[1]}
                     onChange={e => onChange(e.target.value === '' ? undefined : parseInt(e.target.value))}
                 />
             </div>

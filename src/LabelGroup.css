@@ -15,6 +15,13 @@
     cursor: pointer;
 }
 
+.group-labels input[type="number"] {
+    cursor: text;
+    padding: 5px;
+    border: 1px solid black;
+    border-radius: 5px;
+}
+
 .label-group {
     width: fit-content;
     width: -moz-fit-content;
