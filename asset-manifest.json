@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/food-truck-classifier/static/css/main.58a88d7b.chunk.css",
-    "main.js": "/food-truck-classifier/static/js/main.96741e8a.chunk.js",
-    "main.js.map": "/food-truck-classifier/static/js/main.96741e8a.chunk.js.map",
+    "main.js": "/food-truck-classifier/static/js/main.a9a23def.chunk.js",
+    "main.js.map": "/food-truck-classifier/static/js/main.a9a23def.chunk.js.map",
     "runtime-main.js": "/food-truck-classifier/static/js/runtime-main.c7f81410.js",
     "runtime-main.js.map": "/food-truck-classifier/static/js/runtime-main.c7f81410.js.map",
     "static/js/2.494105e9.chunk.js": "/food-truck-classifier/static/js/2.494105e9.chunk.js",
     "static/js/2.494105e9.chunk.js.map": "/food-truck-classifier/static/js/2.494105e9.chunk.js.map",
     "index.html": "/food-truck-classifier/index.html",
-    "precache-manifest.9ffc445be1de6faab927d543ea2c47a3.js": "/food-truck-classifier/precache-manifest.9ffc445be1de6faab927d543ea2c47a3.js",
+    "precache-manifest.adb3946593834479eefdc39878d38ffb.js": "/food-truck-classifier/precache-manifest.adb3946593834479eefdc39878d38ffb.js",
     "service-worker.js": "/food-truck-classifier/service-worker.js",
     "static/css/main.58a88d7b.chunk.css.map": "/food-truck-classifier/static/css/main.58a88d7b.chunk.css.map",
     "static/js/2.494105e9.chunk.js.LICENSE.txt": "/food-truck-classifier/static/js/2.494105e9.chunk.js.LICENSE.txt"
@@ -17,6 +17,6 @@
     "static/js/runtime-main.c7f81410.js",
     "static/js/2.494105e9.chunk.js",
     "static/css/main.58a88d7b.chunk.css",
-    "static/js/main.96741e8a.chunk.js"
+    "static/js/main.a9a23def.chunk.js"
   ]
 }
