@@ -125,6 +125,7 @@ export default class App extends React.Component<AppProps, AppState> {
         <button
           type="button"
           onClick={() => {
+            this.setState({ imageDocument: undefined });
             commitLabels(imageDocument)
               .then(() => {
                 getNextImage()
