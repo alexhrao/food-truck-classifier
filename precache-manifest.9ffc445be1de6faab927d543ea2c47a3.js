@@ -1,11 +1,11 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "66f5b127c14aa1f946b0d25483c6386d",
+    "revision": "54519a9e637b7f8a607e3dd6bb8a7551",
     "url": "/food-truck-classifier/index.html"
   },
   {
-    "revision": "a30f5bf8e05130ecde23",
-    "url": "/food-truck-classifier/static/css/main.eb7cb253.chunk.css"
+    "revision": "e21a0ac1499165a3c3ee",
+    "url": "/food-truck-classifier/static/css/main.58a88d7b.chunk.css"
   },
   {
     "revision": "e10ded9664fab844266c",
@@ -16,7 +16,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/food-truck-classifier/static/js/2.494105e9.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "a30f5bf8e05130ecde23",
+    "revision": "e21a0ac1499165a3c3ee",
     "url": "/food-truck-classifier/static/js/main.96741e8a.chunk.js"
   },
   {
