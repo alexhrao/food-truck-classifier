@@ -47,6 +47,7 @@ export default class App extends React.Component<AppProps, AppState> {
                 // add
                 imageDocument.labels.push({
                   groupName: group.groupName,
+                  groupId: group.groupId,
                   groupType: 'multiple',
                   value: v,
                 });
@@ -71,6 +72,7 @@ export default class App extends React.Component<AppProps, AppState> {
                 // add
                 imageDocument.labels.push({
                   groupName: group.groupName,
+                  groupId: group.groupId,
                   groupType: 'single',
                   value: v,
                 });
@@ -99,6 +101,7 @@ export default class App extends React.Component<AppProps, AppState> {
                 // add
                 imageDocument.labels.push({
                   groupName: group.groupName,
+                  groupId: group.groupId,
                   groupType: 'numeric',
                   value: v,
                 });
