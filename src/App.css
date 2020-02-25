@@ -4,6 +4,10 @@ html {
   color: white;
 }
 
+.App {
+  margin: 10px;
+}
+
 .label-groups {
   display: flex;
   flex-direction: row;
@@ -14,6 +18,11 @@ html {
   flex-direction: column;
   width: -moz-fit-content;
   width: fit-content;
+}
+
+.image-container img {
+  border-top-right-radius: 5px;
+  border-top-left-radius: 5px;
 }
 
 .image-container button {
