@@ -50,7 +50,18 @@ export interface ImageDocument {
 
 export const getLabels = async (): Promise<LabelGroup[]> => {
     return fetch('https://food-truck-spy.appspot.com/api/labels')
-        .then(resp => resp.json() as Promise<LabelGroup[]>);
+        .then(resp => resp.json() as Promise<LabelGroup[]>)
+        .then(labels => {
+            return labels.map(group => {
+                if (group.groupType === 'multiple' || group.groupType === 'single') {
+                    group.labels.sort();
+                    if (group.labels.includes('none')) {
+                        group.labels = ['none', ...group.labels.filter(l => l !== 'none')];
+                    }
+                }
+                return group;
+            })
+        })
 }
 
 export const getNextImage = async (): Promise<ImageDocument> => {
