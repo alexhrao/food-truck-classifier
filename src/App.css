@@ -8,3 +8,38 @@ html {
   display: flex;
   flex-direction: row;
 }
+
+.image-container {
+  display: flex;
+  flex-direction: column;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+
+.image-container button {
+  background-color: darkred;
+  color: white;
+  font-size: 1.5em;
+  border: none;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  cursor: pointer;
+  padding: 5px;
+}
+
+.label-container {
+  display: flex;
+  flex-direction: column;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+
+.label-container button {
+  background-color: lightgreen;
+  color: black;
+  border: none;
+  font-size: 1.5em;
+  border-radius: 5px;
+  cursor: pointer;
+  padding: 5px;
+}

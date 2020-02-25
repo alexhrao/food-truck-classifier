@@ -121,23 +121,41 @@ export default class App extends React.Component<AppProps, AppState> {
     return (
       <div className="App">
         <h1>{imageDocument.filename}</h1>
-        <img src={`https://food-truck-spy.appspot.com/api/snapshots/${imageDocument.bucket}/${imageDocument.key}`} alt="Classify" />
-        <div className="label-groups">
-          {labels}
+        <div className="image-container">
+          <img src={`https://food-truck-spy.appspot.com/api/snapshots/${imageDocument.bucket}/${imageDocument.key}`} alt="Classify" />
+          <button
+            type="button"
+            onClick={() => {
+              imageDocument.labels = [];
+              this.setState({ imageDocument: undefined });
+              commitLabels(imageDocument)
+                .then(() => {
+                  getNextImage()
+                    .then(imgDoc => this.setState({ imageDocument: imgDoc }));
+                });
+            }}
+          >
+            This is invalid!
+          </button>
         </div>
-        <button
-          type="button"
-          onClick={() => {
-            this.setState({ imageDocument: undefined });
-            commitLabels(imageDocument)
-              .then(() => {
-                getNextImage()
-                  .then(imgDoc => this.setState({ imageDocument: imgDoc }));
-              })
-          }}
-        >
-          Commit Changes
-        </button>
+        <div className="label-container">
+          <div className="label-groups">
+            {labels}
+          </div>
+          <button
+            type="button"
+            onClick={() => {
+              this.setState({ imageDocument: undefined });
+              commitLabels(imageDocument)
+                .then(() => {
+                  getNextImage()
+                    .then(imgDoc => this.setState({ imageDocument: imgDoc }));
+                })
+            }}
+          >
+            Commit Changes
+          </button>
+        </div>
       </div>
     );
   }
