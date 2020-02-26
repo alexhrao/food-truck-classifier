@@ -9,12 +9,13 @@ interface SingleLabelGroupProps {
 };
 
 const SingleLabelGroup: React.FC<SingleLabelGroupProps> = ({ groupName, value, labels, onChange }) => {
-    const radios = labels.map(label => {
+    const radios = labels.map((label, i) => {
         return (
-            <label>
+            <label key={label}>
                 <input
                     type="radio"
                     key={label}
+                    tabIndex={i}
                     name={groupName}
                     checked={value === label} 
                     onChange={() => {
@@ -25,11 +26,22 @@ const SingleLabelGroup: React.FC<SingleLabelGroupProps> = ({ groupName, value, l
             </label>
         )
     });
+    const left: JSX.Element[] = [];
+    const right: JSX.Element[] = [];
+    for (let i = 0; i < radios.length; i += 2) {
+        left.push(radios[i]);
+        right.push(radios[i+1]);
+    }
     return (
         <div className="label-group">
             <p className="group-title">{groupName}</p>
             <div className="group-labels">
-                {radios}
+                <div className="left-labels">
+                    {left}
+                </div>
+                <div className="right-labels">
+                    {right}
+                </div>
             </div>
         </div>
     );

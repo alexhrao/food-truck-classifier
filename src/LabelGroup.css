@@ -1,6 +1,6 @@
 .group-labels {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: left;
     align-items: flex-start;
     margin-left: auto;
@@ -29,4 +29,10 @@
     padding: 15px;
     border: 1px solid white;
     border-radius: 5px;
+}
+
+.left-labels,
+.right-labels {
+    display: flex;
+    flex-direction: column;
 }

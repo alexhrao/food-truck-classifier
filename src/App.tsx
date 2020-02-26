@@ -21,7 +21,25 @@ export default class App extends React.Component<AppProps, AppState> {
       .then(imgDoc => this.setState({ imageDocument: imgDoc }));
     getLabels()
       .then(labels => this.setState({ labelGroups: labels }));
+    window.onkeypress = (e: KeyboardEvent) => {
+      if (e.key === 'Enter') {
+        const { imageDocument } = this.state;
+        if (imageDocument === undefined) {
+          return;
+        }
+        this.commitChanges(imageDocument);
+      }
+    }
   }
+
+  private commitChanges = async (doc: ImageDocument): Promise<void> => {
+    this.setState({ imageDocument: undefined });
+    return commitLabels(doc)
+      .then(() => {
+        getNextImage()
+          .then(imgDoc => this.setState({ imageDocument: imgDoc }));
+      });
+  };
 
   public render() {
     const { labelGroups, imageDocument } = this.state;
@@ -123,38 +141,28 @@ export default class App extends React.Component<AppProps, AppState> {
         <h1>{imageDocument.filename}</h1>
         <div className="image-container">
           <img src={`https://food-truck-spy.appspot.com/api/snapshots/${imageDocument.bucket}/${imageDocument.key}`} alt="Classify" />
-          <button
-            type="button"
-            onClick={() => {
-              imageDocument.labels = [];
-              this.setState({ imageDocument: undefined });
-              commitLabels(imageDocument)
-                .then(() => {
-                  getNextImage()
-                    .then(imgDoc => this.setState({ imageDocument: imgDoc }));
-                });
-            }}
-          >
-            This is invalid!
-          </button>
         </div>
         <div className="label-container">
           <div className="label-groups">
             {labels}
           </div>
-          <button
-            type="button"
-            onClick={() => {
-              this.setState({ imageDocument: undefined });
-              commitLabels(imageDocument)
-                .then(() => {
-                  getNextImage()
-                    .then(imgDoc => this.setState({ imageDocument: imgDoc }));
-                })
-            }}
-          >
-            Commit Changes
-          </button>
+          <div className="button-group">
+            <button
+              type="button"
+              onClick={() => this.commitChanges(imageDocument)}
+            >
+              Commit Changes
+            </button>
+            <button
+              type="button"
+              onClick={() => {
+                imageDocument.labels = [];
+                this.commitChanges(imageDocument);
+              }}
+            >
+              Mark as Invalid
+            </button>
+          </div>
         </div>
       </div>
     );
